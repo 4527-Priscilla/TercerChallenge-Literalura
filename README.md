@@ -23,12 +23,12 @@ La aplicación se ejecuta a través de un menú interactivo en la consola, ofrec
  - _Consulta simple: findAll()._
 
 <p align="center">
- <img src="assets/Imagen_ejemplo2.jpg" alt="Ejemplo app 2" width="380">
+ <img src="assets/Imagen_ejemplo_2.jpg" alt="Ejemplo app 2" width="380">
 </p>
 
 **3. Listar Autores Registrados:** Muestra una lista de todos los autores únicos que tienen al menos un libro asociado en la base de datos local. La consulta está optimizada para cargar los libros del autor en una sola petición.
  - _Consulta optimizada con FETCH JOIN para evitar el problema N+1._
- - 
+   
 <p align="center">
  <img src="assets/Imagen_ejemplo3.jpg" alt="Ejemplo app 3" width="380">
 </p>
@@ -37,7 +37,7 @@ La aplicación se ejecuta a través de un menú interactivo en la consola, ofrec
  - _Consulta JPQL personalizada que compara fechas de nacimiento y fallecimiento (fechaDeNacimiento <= :anio AND (fechaDeFallecimiento IS NULL OR fechaDeFallecimiento >= :anio))._
 
 <p align="center">
- <img src="assets/Imagen_ejemplo4.jpg" alt="Ejemplo app 4" width="380">
+ <img src="assets/Imagen_ejemplo_4.jpg" alt="Ejemplo app 4" width="380">
 </p>
 
 **5. Listar Libros por Idioma:** Pide al usuario un código de idioma de dos letras (ej. 'es', 'en'). El sistema recupera y lista todos los libros en la base de datos que coincidan con ese código.
