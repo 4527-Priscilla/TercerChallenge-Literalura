@@ -51,7 +51,7 @@ Ejecuta la clase principal ChallengeApplication.java.
 
 La aplicación se ejecutará como un CommandLineRunner y automáticamente te presentará el menú de opciones.
 
-### ¿Cómo funciona?
+### <ins> :thinking: ¿Cómo funciona? </ins> :thinking:
 
 La aplicación sigue un flujo estructurado al buscar contenido:
 
