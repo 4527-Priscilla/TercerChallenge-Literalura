@@ -22,16 +22,32 @@ La aplicación se ejecuta a través de un menú interactivo en la consola, ofrec
 
 **5- Listar Libros por Idioma:** Consulta por palabra clave de Spring Data JPA: findByIdioma(String idioma).
 
+
 ## :computer: Tecnologías
 
-- Java 17+ _Core Language_
+- **Java** 17+ _Core Language_
 
-- Spring Boot 3.x _Configuración y auto-configuración_
+- **Spring Boot** 3.x _Configuración y auto-configuración_
 
-- Spring Data JPA Starter _Abstracción de persistencia_
+- **Spring Data JPA** Starter _Abstracción de persistencia_
 
-- H2 Database Runtime _Base de datos en memoria para desarrollo_
+- **H2 Database** Runtime _Base de datos en memoria para desarrollo_
 
-- Gutendex API Cliente REST _Consumo de datos externos_
+- **Gutendex API** Cliente REST _Consumo de datos externos_
 
-- Jackson Built-in _Conversión de JSON a objetos Java_
+- **Jackson** Built-in _Conversión de JSON a objetos Java_
+
+## :rocket: Inicio Rápido
+
+### Requisitos
+
+:white_check_mark: Asegúrate de tener el **JDK 17** o superior instalado.
+
+### Ejecución
+
+:white_check_mark: Abre el proyecto en tu IDE (IntelliJ, Eclipse, VS Code).
+
+:white_check_mark: Ejecuta la clase principal *ChallengeApplication.java.*
+
+:white_check_mark: La aplicación se ejecutará como un *CommandLineRunner* y automáticamente te presentará el menú de opciones para empezar a catalogar y consultar libros.
+
