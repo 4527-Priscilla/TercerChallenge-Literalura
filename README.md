@@ -6,7 +6,7 @@
     <img src="assets/Libros_portada.jpg" alt="Libros " width="700">
 </p>
 
-Este proyecto forma parte del curso **Alura Latam One - _Practicando Spring Boot._** En este desafío se realiza una aplicación de consola desarrollada con Spring Boot, que permite a los usuarios interactuar con la API de Gutendex (un índice de libros del Proyecto Gutenberg) y persistir la información de los libros y autores consultados en una base de datos local.
+Este proyecto forma parte del curso **Alura Latam One - _Practicando Spring Boot._** En este desafío se realiza una aplicación de consola desarrollada con Spring Boot, que permite a los usuarios interactuar con la API de **Gutendex** (un índice de libros del Proyecto Gutenberg) y persistir la información de los libros y autores consultados en una base de datos local.
 
 ## :gear: Funcionalidades
 
@@ -55,15 +55,18 @@ La aplicación se ejecutará como un CommandLineRunner y automáticamente te pre
 
 La aplicación sigue un flujo estructurado al buscar contenido:
 
-- **Menú y Entrada:** El usuario selecciona una opción del menú y proporciona una entrada (ej. el título de un libro).
+- **Menú y Entrada:** El usuario selecciona una opción del menú y proporciona una entrada (ej. Opción 1, el título de un libro).
 
-- **Verificación Local (Opción 1):** Antes de consumir la API, la aplicación verifica si el libro ya existe en la base de datos H2. Si existe, lo notifica.
+- **Verificación Local (Persistencia):** Se utiliza el método libroRepository.existsByTitulo() para verificar inmediatamente si el libro ya se encuentra en la base de datos H2. Esto evita llamadas innecesarias a la API externa.
 
-- **Consulta Externa:** Si el libro es nuevo, la aplicación realiza una solicitud HTTP a la API de Gutendex.
+- **Consulta Externa:** Si es nuevo, la clase ConsumoAPI realiza la solicitud HTTP. La respuesta JSON es inmediatamente procesada por la clase ConvierteDatos (utilizando la librería Jackson) y se mapea a los records de Java (DatosLibro, DatosAutor).
 
-- **Persistencia:** La respuesta de la API (JSON) se mapea a las entidades de Java (Libro y Autor). Si el autor no existe, se crea. Finalmente, el libro se guarda en la base de datos H2.
+- **Persistencia:**
+    - Autor Único: La aplicación busca si el autor ya existe utilizando un método personalizado del repositorio (autorRepository.findByNombreContainingIgnoreCase()). Esto es crucial para mantener la integridad de los datos y evitar duplicados de autores.
 
-- **Resultado:** La información relevante se imprime en la consola.
+    - Relación y Guardado: Si el autor existe, se reutiliza su ID. Si no, se crea y se guarda primero. Finalmente, la entidad Libro se crea, se vincula con la instancia persistente del Autor (estableciendo la relación @ManyToOne), y se guarda en la base de datos (libroRepository.save()).
+
+- **Resultado:** La información del libro y autor registrados se imprime en la consola, confirmando la persistencia.
 
 
  <img src="assets/Imagen_ejemplo.jpg" alt="Libros " width="480">
