@@ -51,3 +51,4 @@ La aplicación se ejecuta a través de un menú interactivo en la consola, ofrec
 
 :white_check_mark: La aplicación se ejecutará como un *CommandLineRunner* y automáticamente te presentará el menú de opciones para empezar a catalogar y consultar libros.
 
+ <img src="assets/Imagen_ejemplo.jpg" alt="Libros " width="450">
