@@ -45,10 +45,25 @@ La aplicación se ejecuta a través de un menú interactivo en la consola, ofrec
 
 ### Ejecución
 
-:white_check_mark: Abre el proyecto en tu IDE (IntelliJ, Eclipse, VS Code).
+Abre el proyecto en tu IDE (IntelliJ, Eclipse, VS Code).
 
-:white_check_mark: Ejecuta la clase principal *ChallengeApplication.java.*
+Ejecuta la clase principal ChallengeApplication.java.
 
-:white_check_mark: La aplicación se ejecutará como un *CommandLineRunner* y automáticamente te presentará el menú de opciones para empezar a catalogar y consultar libros.
+La aplicación se ejecutará como un CommandLineRunner y automáticamente te presentará el menú de opciones.
 
- <img src="assets/Imagen_ejemplo.jpg" alt="Libros " width="450">
+### ¿Cómo funciona?
+
+La aplicación sigue un flujo estructurado al buscar contenido:
+
+- **Menú y Entrada:** El usuario selecciona una opción del menú y proporciona una entrada (ej. el título de un libro).
+
+- **Verificación Local (Opción 1):** Antes de consumir la API, la aplicación verifica si el libro ya existe en la base de datos H2. Si existe, lo notifica.
+
+- **Consulta Externa:** Si el libro es nuevo, la aplicación realiza una solicitud HTTP a la API de Gutendex.
+
+- **Persistencia:** La respuesta de la API (JSON) se mapea a las entidades de Java (Libro y Autor). Si el autor no existe, se crea. Finalmente, el libro se guarda en la base de datos H2.
+
+- **Resultado:** La información relevante se imprime en la consola.
+
+
+ <img src="assets/Imagen_ejemplo.jpg" alt="Libros " width="480">
