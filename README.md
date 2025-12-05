@@ -8,19 +8,24 @@
 
 Este proyecto forma parte del curso **Alura Latam One - _Practicando Spring Boot._** En este desafío se realiza una aplicación de consola desarrollada con Spring Boot, que permite a los usuarios interactuar con la API de **Gutendex** (un índice de libros del Proyecto Gutenberg) y persistir la información de los libros y autores consultados en una base de datos local.
 
-## :gear: Funcionalidades
+## :thinking: Funcionalidades 
 
 La aplicación se ejecuta a través de un menú interactivo en la consola, ofreciendo las siguientes opciones de persistencia y consulta:
 
-**1- Buscar Libro por Título:** Persistencia de Libro y Autor, manejo de relaciones @OneToMany y @ManyToOne.
+**1. Buscar Libro por Título:** El usuario introduce un título. La aplicación consulta la API de Gutendex, selecciona el primer resultado y lo persiste. Si el autor es nuevo, lo registra. Si ya existe, lo reutiliza para mantener la consistencia de la base de datos.
+ - _Persistencia de Libro y Autor, manejo de relaciones @OneToMany y @ManyToOne._
 
-**2- Listar Libros Registrados:** Consulta simple findAll().
+**2. Listar Libros Registrados:** Recupera y muestra en consola la lista completa de todos los objetos Libro que han sido guardados previamente en la base de datos H2.
+ - _Consulta simple: findAll()._
 
-**3- Listar Autores Registrados:** Consulta optimizada con FETCH JOIN.
+**3. Listar Autores Registrados:** Muestra una lista de todos los autores únicos que tienen al menos un libro asociado en la base de datos local. La consulta está optimizada para cargar los libros del autor en una sola petición.
+ - _Consulta optimizada con FETCH JOIN para evitar el problema N+1._
 
-**4- Listar Autores Vivos en Año:** Consulta JPQL personalizada que compara fechas de nacimiento y fallecimiento.
+**4. Listar Autores Vivos en Año:** Permite al usuario ingresar un año. La aplicación devuelve una lista de autores cuya fecha de nacimiento es anterior o igual a ese año, y cuya fecha de fallecimiento es posterior o igual a ese año, o es nula (están vivos).
+ - _Consulta JPQL personalizada que compara fechas de nacimiento y fallecimiento (fechaDeNacimiento <= :anio AND (fechaDeFallecimiento IS NULL OR fechaDeFallecimiento >= :anio))._
 
-**5- Listar Libros por Idioma:** Consulta por palabra clave de Spring Data JPA: findByIdioma(String idioma).
+**5. Listar Libros por Idioma:** Pide al usuario un código de idioma de dos letras (ej. 'es', 'en'). El sistema recupera y lista todos los libros en la base de datos que coincidan con ese código.
+ - _Consulta por palabra clave de Spring Data JPA: findByIdioma(String idioma)._
 
 
 ## :computer: Tecnologías
@@ -51,7 +56,7 @@ Ejecuta la clase principal ChallengeApplication.java.
 
 La aplicación se ejecutará como un CommandLineRunner y automáticamente te presentará el menú de opciones.
 
-### <ins> :thinking: ¿Cómo funciona? </ins> :thinking:
+### <ins> :gear: Estructura </ins> :gear:
 
 La aplicación sigue un flujo estructurado al buscar contenido:
 
@@ -68,5 +73,6 @@ La aplicación sigue un flujo estructurado al buscar contenido:
 
 - **Resultado:** La información del libro y autor registrados se imprime en la consola, confirmando la persistencia.
 
-
+<p align="center">
  <img src="assets/Imagen_ejemplo.jpg" alt="Libros " width="480">
+</p>
