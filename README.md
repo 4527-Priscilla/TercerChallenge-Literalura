@@ -7,3 +7,31 @@
 </p>
 
 Este proyecto forma parte del curso **Alura Latam One - _Practicando Spring Boot._** En este desafío se realiza una aplicación de consola desarrollada con Spring Boot, que permite a los usuarios interactuar con la API de Gutendex (un índice de libros del Proyecto Gutenberg) y persistir la información de los libros y autores consultados en una base de datos local.
+
+## :gear: Funcionalidades
+
+La aplicación se ejecuta a través de un menú interactivo en la consola, ofreciendo las siguientes opciones de persistencia y consulta:
+
+**1- Buscar Libro por Título:** Persistencia de Libro y Autor, manejo de relaciones @OneToMany y @ManyToOne.
+
+**2- Listar Libros Registrados:** Consulta simple findAll().
+
+**3- Listar Autores Registrados:** Consulta optimizada con FETCH JOIN.
+
+**4- Listar Autores Vivos en Año:** Consulta JPQL personalizada que compara fechas de nacimiento y fallecimiento.
+
+**5- Listar Libros por Idioma:** Consulta por palabra clave de Spring Data JPA: findByIdioma(String idioma).
+
+## :computer: Tecnologías
+
+- Java 17+ _Core Language_
+
+- Spring Boot 3.x _Configuración y auto-configuración_
+
+- Spring Data JPA Starter _Abstracción de persistencia_
+
+- H2 Database Runtime _Base de datos en memoria para desarrollo_
+
+- Gutendex API Cliente REST _Consumo de datos externos_
+
+- Jackson Built-in _Conversión de JSON a objetos Java_
